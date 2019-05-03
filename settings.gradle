@@ -3,4 +3,4 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-rootProject.name = 'oauth2'
+rootProject.name = 'oauth2-example'
