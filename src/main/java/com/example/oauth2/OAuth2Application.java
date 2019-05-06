@@ -21,7 +21,10 @@ public class OAuth2Application extends WebSecurityConfigurerAdapter {
 
   @GetMapping(path = "/user")
   public Principal user(Principal principal) {
-    log.info("user called ...");
+    log.info("OAuth2Application /user endpoint called ...");
+    log.info("Principal Name: {}", principal.getName());
+    log.info("Principal: {}", principal);
+    
     return principal;
   }
 
@@ -34,10 +37,10 @@ public class OAuth2Application extends WebSecurityConfigurerAdapter {
         .permitAll()
         .anyRequest()
         .authenticated()
+        .and()  // .logoutUrl("/logout")
+        .logout().deleteCookies("JSESSIONID").logoutSuccessUrl("/").permitAll()
         .and()
-        .logout().logoutSuccessUrl("/").permitAll()
-        .and()
-        .csrf()
+        .csrf() // create cookie for client and put jsessionid in cookie
         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
   }
 
