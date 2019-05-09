@@ -31,17 +31,20 @@ public class OAuth2Application extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http
-        .antMatcher("/**")
+        //.antMatcher("/**")
         .authorizeRequests()
-        .antMatchers("/", "/login**", "/webjars/**", "/error**")
-        .permitAll()
-        .anyRequest()
-        .authenticated()
+          .antMatchers("/", "/login**", "/webjars/**", "/error**").permitAll()
+          .antMatchers("/user").access("hasRole('ADMIN') and hasRole('USER')")
+          .anyRequest().authenticated()
         .and()  // .logoutUrl("/logout")
-        .logout().deleteCookies("JSESSIONID").logoutSuccessUrl("/").permitAll()
+          .logout()
+          .logoutUrl("/logout")
+          .logoutSuccessUrl("/")
+          .invalidateHttpSession(true)
+          .deleteCookies("JSESSIONID")
         .and()
-        .csrf() // create cookie for client and put jsessionid in cookie
-        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+          .csrf() // create cookie for client and put jsessionid in cookie
+          .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
   }
 
   /**
