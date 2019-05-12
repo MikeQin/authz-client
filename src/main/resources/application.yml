@@ -1,17 +1,7 @@
+server:  servlet:    context-path: /  error.whitelabel.enabled: false  
 spring:
   application:
     name: oauth2-example
-#  security:
-#    oauth2:
-#      client:
-#        registration:#          authz-server:
-#            client-id: SampleClientId
-#            client-secret: secret
-#        provider:
-#          authz-server:
-#            token-uri: http://localhost:8081/auth/oauth2/v1/token
-#            authorization-uri: http://localhost:8081/auth/oauth2/v1/authorize
-#            user-info-uri: http://localhost:8081/auth/oauth2/v1/userinfo
 security:
   oauth2:
     client:
@@ -19,8 +9,11 @@ security:
       clientSecret: secret
       accessTokenUri: http://localhost:8081/auth/oauth/token
       userAuthorizationUri: http://localhost:8081/auth/oauth/authorize
+#      clientAuthenticationScheme: form
+#      registered-redirect-uri:#      - http://localhost:8080/login
     resource:
       userInfoUri: http://localhost:8081/auth/user/me
+# --------------------------------------------------------------------
 #security:
 #  oauth2:
 #    client:
@@ -31,3 +24,16 @@ security:
 #      clientAuthenticationScheme: form
 #    resource:
 #      userInfoUri: https://api.github.com/user
+# --------------------------------------------------------------------
+#security:
+#  oauth2:
+#    client:
+#      clientId: 233668646673605
+#      clientSecret: 33b17e044ee6a4fa383f46ec6e28ea1d
+#      accessTokenUri: https://graph.facebook.com/oauth/access_token
+#      userAuthorizationUri: https://www.facebook.com/dialog/oauth
+#      tokenName: oauth_token
+#      authenticationScheme: query
+#      clientAuthenticationScheme: form
+#    resource:
+#      userInfoUri: https://graph.facebook.com/me
