@@ -1,3 +1,20 @@
+@rem ***************************************************************************
+@rem Copyright (c) 2019 Michael Qin
+@rem
+@rem The freedom to run the program as you wish, for any purpose (freedom 0).
+@rem
+@rem The freedom to study how the program works, and change it so it does your computing 
+@rem as you wish (freedom 1). Access to the source code is a precondition for this.
+@rem
+@rem The freedom to redistribute copies so you can help your neighbor (freedom 2).
+@rem
+@rem The freedom to distribute copies of your modified versions to others (freedom 3). 
+@rem By doing this you can give the whole community a chance to benefit from your changes. 
+@rem Access to the source code is a precondition for this.
+@rem
+@rem Contributors:
+@rem     Michael Qin - initial API and implementation
+@rem ***************************************************************************
 @if "%DEBUG%" == "" @echo off
 @rem ##########################################################################
 @rem
