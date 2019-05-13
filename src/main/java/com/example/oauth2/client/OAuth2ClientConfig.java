@@ -1,4 +1,4 @@
-package com.example.oauth2;
+package com.example.oauth2.client;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

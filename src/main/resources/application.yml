@@ -1,4 +1,4 @@
-server:  servlet:    context-path: /  error.whitelabel.enabled: false  
+server:  servlet:    context-path: /  error.whitelabel.enabled: false
 spring:
   application:
     name: oauth2-example
