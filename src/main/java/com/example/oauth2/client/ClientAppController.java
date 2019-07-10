@@ -1,9 +1,6 @@
 package com.example.oauth2.client;
 
-import java.security.Principal;
-import java.util.HashMap;
-import java.util.Map;
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -19,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.extern.slf4j.Slf4j;
+import java.security.Principal;
 
 @RestController
 @Slf4j
