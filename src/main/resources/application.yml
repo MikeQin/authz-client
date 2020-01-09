@@ -1,7 +1,7 @@
 server:  servlet:    context-path: /  error.whitelabel.enabled: false
 spring:
   application:
-    name: oauth2-example
+    name: authz-client
 security:
   oauth2:
     client:

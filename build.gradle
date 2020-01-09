@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.1.4.RELEASE'
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
     id 'java'
 }
 
@@ -7,7 +7,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'com.example'
 version = '1.0.0'
-sourceCompatibility = '1.8'
+sourceCompatibility = '11'
 
 configurations {
     compileOnly {
@@ -22,11 +22,12 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation group: 'org.springframework.security.oauth.boot', name: 'spring-security-oauth2-autoconfigure', version: '2.1.4.RELEASE'
-    implementation group: 'org.webjars', name: 'jquery', version: '3.4.0'
-    implementation group: 'org.webjars', name: 'bootstrap', version: '4.3.1'
-    implementation group: 'org.webjars', name: 'webjars-locator', version: '0.36'
-    implementation group: 'org.webjars.bower', name: 'js-cookie', version: '2.2.0'
+    //implementation 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.2.2.RELEASE'
+    compile group: 'org.springframework.security.oauth.boot', name: 'spring-security-oauth2-autoconfigure', version: '2.2.2.RELEASE'
+    implementation 'org.webjars:jquery:3.4.0'
+    implementation 'org.webjars:bootstrap:4.3.1'
+    implementation 'org.webjars:webjars-locator:0.36'
+    implementation 'org.webjars.bower:js-cookie:2.2.0'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'

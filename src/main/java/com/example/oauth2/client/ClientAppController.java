@@ -52,7 +52,7 @@ public class ClientAppController {
 	@Autowired
 	OAuth2RestTemplate oauth2Template;
 
-	@GetMapping(path = "/access_tokens", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@GetMapping(path = "/access_tokens", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> accessTokens() {
 		log.info("/access_tokens called ...");
 		String json = oauth2Template.getForObject("http://localhost:8081/auth/tokens", String.class);
@@ -60,7 +60,7 @@ public class ClientAppController {
 		return ResponseEntity.ok(json);
 	}
 	
-	@PostMapping(path = "/new_token", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@PostMapping(path = "/new_token", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> refreshingToken(@RequestParam(name = "refresh_token") String refreshToken) {
 		
 		log.info("/new_token called ...");
@@ -82,7 +82,7 @@ public class ClientAppController {
 		return ResponseEntity.ok(response.getBody());
 	}
 
-	@GetMapping(path = "/r_token", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@GetMapping(path = "/r_token", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<OAuth2RefreshToken> refreshToken() {
 		
 		log.info("/refresh_token called ...");
@@ -93,7 +93,7 @@ public class ClientAppController {
 		return ResponseEntity.ok(refreshToken);
 	}
 	
-	@GetMapping(path = "/token", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@GetMapping(path = "/token", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<OAuth2AccessToken> accessToken() {
 		
 		log.info("/access_token called ...");		

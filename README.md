@@ -1,1 +1,3 @@
-# OAuth2 Example
+# Authz Client
+
+An OAuth2 Client Example
