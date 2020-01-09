@@ -17,6 +17,9 @@
  *******************************************************************************/
 package com.example.oauth2.client;
 
+
+import lombok.extern.slf4j.Slf4j;
+
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +36,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j

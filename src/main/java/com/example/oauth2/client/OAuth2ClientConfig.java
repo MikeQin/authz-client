@@ -17,7 +17,7 @@
  *******************************************************************************/
 package com.example.oauth2.client;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,8 +31,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EnableOAuth2Client
 public class OAuth2ClientConfig {
 
-	@Autowired
-	private OAuth2ClientContext oauth2Context;
+	private final OAuth2ClientContext oauth2Context;
 
 	@Value("${security.oauth2.client.clientId:SampleClientId}")
 	private String clientId;
@@ -45,9 +44,14 @@ public class OAuth2ClientConfig {
 
 	@Value("${security.oauth2.client.accessTokenUri:http://localhost:8081/auth/oauth/token}")
 	private String tokenUrl;
-	
+
+	public OAuth2ClientConfig(@Qualifier("oauth2ClientContext") OAuth2ClientContext oauth2ClientContext) {
+		this.oauth2Context = oauth2ClientContext;
+	}
+
 	@Bean
 	public OAuth2RestTemplate restTemplate() {
+
 		return new OAuth2RestTemplate(resource(), oauth2Context);
 	}
 	
